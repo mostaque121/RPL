@@ -4,7 +4,7 @@ import fetchData from "@/app/lib/fetchData";
 export async function generateStaticParams() {
     const nextUrl = process.env.NEXT_PUBLIC_API_URL
     if (!nextUrl) {
-        return null;
+        return [];
     }
     try {
         const allServices = await fetch(`${nextUrl}/api/services`).then((res) => res.json());
