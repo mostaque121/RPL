@@ -1,6 +1,8 @@
 import CertificateCard from "@/app/components/card/CertificateCard";
 import fetchData from "@/app/lib/fetchData";
 
+export const revalidate = 60
+
 export async function generateStaticParams() {
     const nextUrl = process.env.NEXT_PUBLIC_API_URL
     if (!nextUrl) {
