@@ -9,7 +9,7 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 export async function generateStaticParams() {
     const nextUrl = process.env.NEXT_PUBLIC_API_URL
     if (!nextUrl) {
-        return null;
+        return [];
     }
     try {
         const allCertificate = await fetch(`${nextUrl}/api/certificates`).then((res) => res.json());
