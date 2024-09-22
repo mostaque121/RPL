@@ -1,7 +1,6 @@
+export const revalidate = 60
 import ServiceCard from "../components/card/ServiceCard";
 import fetchData from "../lib/fetchData";
-
-export const revalidate = 60
 
 export default async function Page() {
     const nextUrl = process.env.NEXT_PUBLIC_API_URL
