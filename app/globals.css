@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slick-prev,
+.slick-next {
+  width: 100px;
+  height: 30px;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+.slick-prev {
+  left: 15px !important;
+}
+
+.slick-next {
+  right: 15px !important;
+}
+
+.response-input {
+  width: 100%;
+  height: 40px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  unicode-bidi: isolate;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  unicode-bidi: isolate;
+}
+ol {
+  display: block;
+  list-style-type: decimal;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  unicode-bidi: isolate;
+}
+
+figure.table {
+  width: 100%; /* Ensure the figure takes full width */
+  display: block;
+  margin: 0;
+}
+
+table {
+  width: 100%; /* Make the table take up full width */
+  border-collapse: collapse; /* Ensure no gaps between cells */
+  table-layout: auto; /* Allow columns to adjust dynamically */
+}
+
+td,
+th {
+  border: 1px solid #ddd; /* Light border for cells */
+  padding: 12px 15px; /* Padding inside cells */
+  text-align: left;
+}
+
+td:first-child {
+  min-width: 150px;
+}
+
+td:nth-child(2) {
+  width: 10000px;
+}
+
+td[colspan] {
+  width: 100%; /* Ensure colspan <td> takes full width */
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternate row color */
+}
+
+tr:hover {
+  background-color: #f1f1f1; /* Hover effect */
+}
+
+.loader {
+  border: 8px solid rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  border-top: 8px solid #ffffff;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
