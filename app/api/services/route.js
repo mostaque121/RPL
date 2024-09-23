@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import dbConnect from '@/app/lib/mongodb';
 import { Service } from '@/app/Models/models';
 import { NextResponse } from 'next/server';
