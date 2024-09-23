@@ -1,13 +1,12 @@
-export const revalidate = 3600;
 import ServiceCard from "../components/card/ServiceCard";
-
+import { revalidateService } from "../lib/action";
 export default async function Page() {
     const nextUrl = process.env.NEXT_PUBLIC_API_URL
     if (!nextUrl) {
         return null;
     }
     let response = await fetch(`${nextUrl}/api/services`);
-    let jsonResponse = await response.json(); 
+    let jsonResponse = await response.json();
     let services = jsonResponse.data;
     return (
         <div>
@@ -21,6 +20,12 @@ export default async function Page() {
                     </p>
                 </div>
             </div>
+            <form action={revalidateService}>
+                <button className="bg-blue-500 px-3 py-1">
+                    revalidate
+                </button>
+            </form>
+
             <div className="bg-light-blue-hover sm:px-10 px-5  py-10 ">
                 <div className="max-w-4xl mx-auto">
                     <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
