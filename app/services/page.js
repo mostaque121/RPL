@@ -1,13 +1,14 @@
-export const revalidate = 60
+export const revalidate = 60;
 import ServiceCard from "../components/card/ServiceCard";
-import fetchData from "../lib/fetchData";
 
 export default async function Page() {
     const nextUrl = process.env.NEXT_PUBLIC_API_URL
     if (!nextUrl) {
         return null;
     }
-    const services = await fetchData(`${nextUrl}/api/services`);
+    let response = await fetch(`${nextUrl}/api/services`);
+    let jsonResponse = await response.json(); 
+    let services = jsonResponse.data;
     return (
         <div>
             <div className="relative w-full py-16 sm:px-10 px-3 h-auto bg-cover bg-center" style={{ backgroundImage: 'url("/DeWatermark.ai_1726683796769.png")' }}>
