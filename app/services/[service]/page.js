@@ -1,7 +1,4 @@
 import CertificateCard from "@/app/components/card/CertificateCard";
-import fetchData from "@/app/lib/fetchData";
-
-export const revalidate = 60
 
 export async function generateStaticParams() {
     const nextUrl = process.env.NEXT_PUBLIC_API_URL
@@ -25,9 +22,9 @@ export default async function Page({ params }) {
         return null;
     }
     const { service } = params;
-    const data = await fetchData(`${nextUrl}/api/services/${service}`);
-
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    const response = await fetch(`${nextUrl}/api/services/${service}`);
+    let jsonResponse = await response.json(); 
+    let data = jsonResponse.data;
     return (
         <div>
             <div className="relative w-full py-16 sm:px-10 px-3 h-auto bg-cover bg-center" style={{ backgroundImage: `url(${data.imageCoverLink})` }}>
