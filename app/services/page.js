@@ -1,11 +1,15 @@
 import ServiceCard from "../components/card/ServiceCard";
-import { revalidateService } from "../lib/action";
+import { revalidateService, revalidateServiceTag } from "../lib/action";
 export default async function Page() {
     const nextUrl = process.env.NEXT_PUBLIC_API_URL
     if (!nextUrl) {
         return null;
     }
-    let response = await fetch(`${nextUrl}/api/services`);
+    let response = await fetch(`${nextUrl}/api/services`, {
+        next: {
+            tags: ['service']
+        }
+    });
     let jsonResponse = await response.json();
     let services = jsonResponse.data;
     return (
@@ -23,6 +27,11 @@ export default async function Page() {
             <form action={revalidateService}>
                 <button className="bg-blue-500 px-3 py-1">
                     revalidate
+                </button>
+            </form>
+            <form action={revalidateServiceTag}>
+                <button className="bg-blue-500 px-3 mt-5 py-1">
+                    revalidate Tag
                 </button>
             </form>
 
