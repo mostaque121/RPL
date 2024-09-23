@@ -12,6 +12,7 @@ export async function GET(req) {
         select: 'link title ',  // Fields to select
         options: { sort: { index: 1 } }  // Sort the populated documents
       });
+    console.log(services);
     return NextResponse.json({ success: true, data: services });
   } catch (error) {
     console.error('Error fetching services:', error);
